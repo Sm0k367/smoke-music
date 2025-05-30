@@ -1,104 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epic Nightclub Experience</title>
-    <style>
-        /* CSS for styling the webpage */
-        body {
-            margin: 0;
-            overflow: hidden;
-            background: #000;
-        }
-        canvas {
-            width: 100vw;
-            height: 100vh;
-        }
-        .controls {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1;
-        }
-        button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid #00ffcc;
-            color: #00ffcc;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        button:hover {
-            background: #00ffcc;
-            color: #000;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smoke Stream: Lounge After Dark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --accent: #f8c146;
+      --text: #f5f5f5;
+      --muted: #888;
+      --card-bg: #1a1a1a;
+      --glow: 0 0 20px rgba(248, 193, 70, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
+      text-align: center;
+      padding: 40px 20px;
+      animation: pulseBg 10s infinite alternate;
+    }
+
+    @keyframes pulseBg {
+      0% { background: linear-gradient(135deg, #1a1a1a, #0e0e0e); }
+      100% { background: linear-gradient(135deg, #0e0e0e, #1a1a1a); }
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: var(--accent);
+      text-shadow: var(--glow);
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      text-shadow: var(--glow);
+    }
+
+    .section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--glow);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Cards */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      width: 260px;
+      box-shadow: var(--glow);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #111;
+      color: var(--muted);
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Canvas for the 3D scene -->
-    <canvas id="scene"></canvas>
-    
-    <!-- Audio element for the DJ set -->
-    <audio id="audio" controls>
-        <source src="assets/audio/suno-song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    
-    <!-- Control buttons for interactivity -->
-    <div class="controls">
-        <button id="scratch">Scratch</button>
-        <button id="bass-boost">Bass Boost</button>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Smoke Stream: Lounge After Dark</h1>
+    <p>A genre-defying sonic ritual — DJ Turntablism · Spoken Word · Glitch Trap</p>
+  </section>
+
+  <!-- Track Overview -->
+  <section class="section">
+    <h2>Track Overview</h2>
+    <p>
+      “Smoke Stream: Lounge After Dark” is a 6-minute, multi-genre sonic journey blending DJ turntablism, live mixer manipulation, spoken word, ambient glitch textures, and clever adult wordplay. With tempo shifts from 90 to 130 BPM, this track is a ritual of rhythm and soul, layered with chopped vinyl samples, syncopated kicks, and DJ shoutouts like “Smoke Stream…” and “AI Lounge After Dark…”.
+    </p>
+  </section>
+
+  <!-- Visual Gallery -->
+  <section class="section">
+    <h2>Visual Experience</h2>
+    <div class="gallery">
+      <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Vinyl Gods: 360°">
+      <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="AI Lounge Broadcast">
     </div>
-    
-    <!-- Include Three.js via CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- JavaScript for 3D scene and audio integration -->
-    <script>
-        // Three.js setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('scene') });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        
-        // Audio setup
-        const audioElement = document.getElementById('audio');
-        const audioContext = new AudioContext();
-        const source = audioContext.createMediaElementSource(audioElement);
-        const analyser = audioContext.createAnalyser();
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
-        analyser.fftSize = 64;
-        const frequencyData = new Uint8Array(analyser.frequencyBinCount);
-        
-        // Basic 3D object (placeholder for DJ booth or crowd)
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-        camera.position.z = 5;
-        
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            analyser.getByteFrequencyData(frequencyData);
-            // Sync cube rotation with audio frequencies
-            cube.rotation.x += 0.01 * (frequencyData[0] / 255);
-            cube.rotation.y += 0.01 * (frequencyData[1] / 255);
-            renderer.render(scene, camera);
-        }
-        animate();
-        
-        // Interactions
-        document.getElementById('scratch').addEventListener('click', () => {
-            console.log('Scratch effect triggered');
-        });
-        
-        document.getElementById('bass-boost').addEventListener('click', () => {
-            console.log('Bass boost activated');
-        });
-    </script>
+  </section>
+
+  <!-- Suno Cards -->
+  <section class="section">
+    <h2>Suno Playlists & Personas</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🎧 SmokeStream Playlist</h3>
+        <a href="https://suno.com/playlist/8d2afb2e-234b-4f96-8e9a-bd6cad7ae99b" target="_blank">Play on Suno</a>
+      </div>
+
+      <div class="card">
+        <h3>🎶 Underground Playlist</h3>
+        <a href="https://suno.com/playlist/1b82e81f-ac89-4016-92b9-47d49af54f31" target="_blank">Play on Suno</a>
+      </div>
+
+      <div class="card"><h3>👤 Persona #1</h3><a href="https://suno.com/persona/5336bf9a-531b-4da7-840a-710c900334ea" target="_blank">Explore</a></div>
+      <div class="card"><h3>👤 Persona #2</h3><a href="https://suno.com/persona/83fd4628-7be2-44a9-acfe-f7c869f1fba1" target="_blank">Explore</a></div>
+      <div class="card"><h3>👤 Persona #3</h3><a href="https://suno.com/persona/194861e4-9290-431e-98cc-4e7c077df766" target="_blank">Explore</a></div>
+      <div class="card"><h3>👤 Persona #4</h3><a href="https://suno.com/persona/8c8e6221-f2e8-48a8-90d2-8eada6f1384e" target="_blank">Explore</a></div>
+      <div class="card"><h3>👤 Persona #5</h3><a href="https://suno.com/persona/4e03d181-ef6c-436d-978c-22a6f4a15d3f" target="_blank">Explore</a></div>
+      <div class="card"><h3>👤 Persona #6</h3><a href="https://suno.com/persona/06f4d379-b857-4f23-b64f-7e69041e80ad" target="_blank">Explore</a></div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Smoke Stream Collective | All Rights Reserved
+  </footer>
+
 </body>
 </html>
