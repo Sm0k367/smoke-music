@@ -3,33 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>smoke-music</title>
+    <title>Epic Nightclub Experience</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>smoke-music</h1>
-    </header>
-    <main>
-        <section id="visualizer">
-            <canvas id="canvas"></canvas>
-        </section>
-        <section id="music-player">
-            <h2>Listen Now</h2>
-            <audio id="audio" controls>
-                <source src="https://suno.com/s/IFSYDpRy6GumCQSW" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>Welcome to smoke-music, where creativity meets the chill. Explore our unique sound and let the music take you on a journey.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 smoke-music</p>
-    </footer>
-    <script src="[invalid url, do not cite]
-    <script src="visualizer.js"></script>
+    <canvas id="scene"></canvas>
+    <audio id="audio" controls>
+        <source src="assets/audio/suno-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="controls">
+        <button id="scratch">Scratch</button>
+        <button id="bass-boost">Bass Boost</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
