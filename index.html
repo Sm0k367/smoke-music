@@ -1,109 +1,162 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smoke Stream: Lounge After Dark</title>
+  <title>Smoke Stream: AI Lounge After Dark</title>
   <style>
+    :root {
+      --bg-color: #0e0e0e;
+      --accent: #f8c146;
+      --text-light: #e0e0e0;
+      --text-muted: #999;
+      --card-bg: #1a1a1a;
+      --hover-glow: rgba(255, 255, 255, 0.05);
+    }
+
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #0d0d0d;
-      color: #f2f2f2;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-light);
       line-height: 1.6;
     }
+
     header {
-      background: linear-gradient(to right, #111, #222);
-      padding: 40px 20px;
+      padding: 80px 20px 40px;
       text-align: center;
+      background: linear-gradient(to right, #1a1a1a, #0e0e0e);
     }
+
     header h1 {
-      font-size: 2.8em;
+      font-size: 3rem;
       margin: 0;
-      color: #f8c146;
+      color: var(--accent);
     }
+
     header p {
-      font-size: 1.2em;
-      color: #aaa;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-top: 10px;
     }
+
     .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
     }
-    .embed {
-      margin: 20px 0;
-      text-align: center;
+
+    .section {
+      margin-bottom: 60px;
     }
-    .embed img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+    .section h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--hover-glow);
+      padding-bottom: 10px;
     }
-    video {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    }
-    .section-title {
-      font-size: 1.8em;
-      margin-top: 40px;
-      color: #f8c146;
-    }
+
     .description {
-      color: #ccc;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 800px;
+      margin-bottom: 30px;
     }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .gallery-item {
+      flex: 1 1 45%;
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-item:hover {
+      background-color: var(--hover-glow);
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .gallery-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #666;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
       background-color: #111;
       margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        flex-direction: column;
+      }
+
+      .gallery-item {
+        flex: 1 1 100%;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Smoke Stream: Lounge After Dark</h1>
-  <p>A genre-defying sonic ritual | DJ Turntablism · Spoken Word · Glitch Trap</p>
-</header>
+  <header>
+    <h1>Smoke Stream: AI Lounge After Dark</h1>
+    <p>A genre-defying sonic ritual — DJ Turntablism · Spoken Word · Glitch Trap</p>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <div class="embed">
-    <video controls autoplay loop muted>
-      <source src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p class="description">Visual loop from the AI Lounge broadcast feed.</p>
+    <div class="section">
+      <h2>Track Overview</h2>
+      <p class="description">
+        <strong>“Smoke Stream: Lounge After Dark”</strong> is a 6-minute, multi-genre sonic journey blending DJ turntablism, live mixer manipulation, spoken word, ambient glitch textures, and clever adult wordplay. With tempo shifts from 90 to 130 BPM, this track is a ritual of rhythm and soul, layered with chopped vinyl samples, syncopated kicks, and DJ shoutouts like “Smoke Stream…” and “AI Lounge After Dark…”.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Visual Experience</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Visual 1">
+          <p>“Vinyl Gods: 360°” — A Baroque glitch DJ ritual visualized through AI.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="Visual 2">
+          <p>“AI Lounge Broadcast” — A surreal After Dark transmission from the Smoke Stream collective.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <h2 class="section-title">Track Overview</h2>
-  <p class="description">
-    <strong>“Smoke Stream: Lounge After Dark”</strong> is a 6-minute experimental journey blending DJ turntablism, live mixer manipulation, spoken word, ambient glitch, and clever adult wordplay. With tempo shifts from 90 to 130 BPM, it’s a ritual of rhythm and soul.
-  </p>
-
-  <h2 class="section-title">Embedded Visuals</h2>
-
-  <div class="embed">
-    <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Visual 1">
-    <p class="description">Vinyl Gods: 360° — Glitch Baroque DJ Ritual</p>
-  </div>
-
-  <div class="embed">
-    <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="Visual 2">
-    <p class="description">AI Lounge Broadcast: After Dark Transmission</p>
-  </div>
-
-</div>
-
-<footer>
-  &copy; 2025 Smoke Stream Collective | Created with AI & Vinyl
-</footer>
+  <footer>
+    &copy; 2025 Smoke Stream Collective | Crafted in sound and silence | All rights reserved.
+  </footer>
 
 </body>
 </html>
+
