@@ -28,32 +28,69 @@
       overflow-x: hidden;
     }
 
-    /* Hero Section */
-    .hero {
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100vh;
+      background-color: #000;
+      z-index: 9999;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
+      flex-direction: column;
+      animation: fadeOut 1s ease 3s forwards;
+    }
+
+    #loading-screen h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+      text-shadow: var(--glow);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.5; transform: scale(1); }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s ease 3.1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      background: linear-gradient(to right, #000000, #1a1a1a);
       text-align: center;
-      padding: 40px 20px;
-      animation: pulseBg 10s infinite alternate;
+      padding: 120px 20px 80px;
+      position: relative;
     }
 
-    @keyframes pulseBg {
-      0% { background: linear-gradient(135deg, #1a1a1a, #0e0e0e); }
-      100% { background: linear-gradient(135deg, #0e0e0e, #1a1a1a); }
-    }
-
-    .hero h1 {
+    header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
       color: var(--accent);
       text-shadow: var(--glow);
     }
 
-    .hero p {
+    header p {
       margin-top: 15px;
       font-size: 1.2rem;
       color: var(--muted);
@@ -81,7 +118,6 @@
       color: var(--text);
     }
 
-    /* Gallery */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -100,7 +136,6 @@
       transform: scale(1.05);
     }
 
-    /* Cards */
     .card-grid {
       display: flex;
       flex-wrap: wrap;
@@ -133,16 +168,32 @@
       text-decoration: underline;
     }
 
+    /* Suno Embed Placeholder */
+    .embed-player {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .embed-player iframe {
+      width: 100%;
+      height: 150px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--glow);
+    }
+
     footer {
       background-color: #111;
       color: var(--muted);
       text-align: center;
-      padding: 30px 0;
+      padding: 40px 0;
       margin-top: 60px;
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
+      header h1 {
         font-size: 2.2rem;
       }
 
@@ -154,55 +205,62 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Smoke Stream: Lounge After Dark</h1>
-    <p>A genre-defying sonic ritual — DJ Turntablism · Spoken Word · Glitch Trap</p>
-  </section>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <h1>Loading Lounge...</h1>
+  </div>
 
-  <!-- Track Overview -->
-  <section class="section">
-    <h2>Track Overview</h2>
-    <p>
-      “Smoke Stream: Lounge After Dark” is a 6-minute, multi-genre sonic journey blending DJ turntablism, live mixer manipulation, spoken word, ambient glitch textures, and clever adult wordplay. With tempo shifts from 90 to 130 BPM, this track is a ritual of rhythm and soul, layered with chopped vinyl samples, syncopated kicks, and DJ shoutouts like “Smoke Stream…” and “AI Lounge After Dark…”.
-    </p>
-  </section>
+  <!-- Main Content -->
+  <div class="fade-in">
 
-  <!-- Visual Gallery -->
-  <section class="section">
-    <h2>Visual Experience</h2>
-    <div class="gallery">
-      <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Vinyl Gods: 360°">
-      <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="AI Lounge Broadcast">
-    </div>
-  </section>
+    <header>
+      <h1>Smoke Stream: Lounge After Dark</h1>
+      <p>A genre-defying sonic ritual — DJ Turntablism · Spoken Word · Glitch Trap</p>
+    </header>
 
-  <!-- Suno Cards -->
-  <section class="section">
-    <h2>Suno Playlists & Personas</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>🎧 SmokeStream Playlist</h3>
-        <a href="https://suno.com/playlist/8d2afb2e-234b-4f96-8e9a-bd6cad7ae99b" target="_blank">Play on Suno</a>
+    <section class="section">
+      <h2>Track Overview</h2>
+      <p>
+        “Smoke Stream: Lounge After Dark” is a 6-minute, multi-genre sonic journey blending DJ turntablism, live mixer manipulation, spoken word, ambient glitch textures, and clever adult wordplay. With tempo shifts from 90 to 130 BPM, this track is a ritual of rhythm and soul, layered with chopped vinyl samples, syncopated kicks, and DJ shoutouts like “Smoke Stream…” and “AI Lounge After Dark…”.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Visual Experience</h2>
+      <div class="gallery">
+        <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Vinyl Gods: 360°">
+        <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="AI Lounge Broadcast">
       </div>
+    </section>
 
-      <div class="card">
-        <h3>🎶 Underground Playlist</h3>
-        <a href="https://suno.com/playlist/1b82e81f-ac89-4016-92b9-47d49af54f31" target="_blank">Play on Suno</a>
+    <section class="section">
+      <h2>Suno Playlists & Personas</h2>
+      <div class="card-grid">
+        <div class="card"><h3>🎧 SmokeStream Playlist</h3><a href="https://suno.com/playlist/8d2afb2e-234b-4f96-8e9a-bd6cad7ae99b" target="_blank">Play on Suno</a></div>
+        <div class="card"><h3>🎶 Underground Playlist</h3><a href="https://suno.com/playlist/1b82e81f-ac89-4016-92b9-47d49af54f31" target="_blank">Play on Suno</a></div>
+        <div class="card"><h3>👤 Persona #1</h3><a href="https://suno.com/persona/5336bf9a-531b-4da7-840a-710c900334ea" target="_blank">Explore</a></div>
+        <div class="card"><h3>👤 Persona #2</h3><a href="https://suno.com/persona/83fd4628-7be2-44a9-acfe-f7c869f1fba1" target="_blank">Explore</a></div>
+        <div class="card"><h3>👤 Persona #3</h3><a href="https://suno.com/persona/194861e4-9290-431e-98cc-4e7c077df766" target="_blank">Explore</a></div>
+        <div class="card"><h3>👤 Persona #4</h3><a href="https://suno.com/persona/8c8e6221-f2e8-48a8-90d2-8eada6f1384e" target="_blank">Explore</a></div>
+        <div class="card"><h3>👤 Persona #5</h3><a href="https://suno.com/persona/4e03d181-ef6c-436d-978c-22a6f4a15d3f" target="_blank">Explore</a></div>
+        <div class="card"><h3>👤 Persona #6</h3><a href="https://suno.com/persona/06f4d379-b857-4f23-b64f-7e69041e80ad" target="_blank">Explore</a></div>
       </div>
+    </section>
 
-      <div class="card"><h3>👤 Persona #1</h3><a href="https://suno.com/persona/5336bf9a-531b-4da7-840a-710c900334ea" target="_blank">Explore</a></div>
-      <div class="card"><h3>👤 Persona #2</h3><a href="https://suno.com/persona/83fd4628-7be2-44a9-acfe-f7c869f1fba1" target="_blank">Explore</a></div>
-      <div class="card"><h3>👤 Persona #3</h3><a href="https://suno.com/persona/194861e4-9290-431e-98cc-4e7c077df766" target="_blank">Explore</a></div>
-      <div class="card"><h3>👤 Persona #4</h3><a href="https://suno.com/persona/8c8e6221-f2e8-48a8-90d2-8eada6f1384e" target="_blank">Explore</a></div>
-      <div class="card"><h3>👤 Persona #5</h3><a href="https://suno.com/persona/4e03d181-ef6c-436d-978c-22a6f4a15d3f" target="_blank">Explore</a></div>
-      <div class="card"><h3>👤 Persona #6</h3><a href="https://suno.com/persona/06f4d379-b857-4f23-b64f-7e69041e80ad" target="_blank">Explore</a></div>
-    </div>
-  </section>
+    <!-- Suno Embed Section (Ready for Future) -->
+    <section class="section">
+      <h2>🎧 Embedded Player (Coming Soon)</h2>
+      <p>When Suno supports embeds, your tracks will play right here.</p>
+      <div class="embed-player">
+        <iframe src="https://suno.com/embed/playlist/8d2afb2e-234b-4f96-8e9a-bd6cad7ae99b" allowfullscreen></iframe>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 Smoke Stream Collective | All Rights Reserved
-  </footer>
+    <footer>
+      &copy; 2025 Smoke Stream Collective | Crafted in sound and silence
+    </footer>
+
+  </div>
 
 </body>
 </html>
