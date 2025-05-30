@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smoke Stream: AI Lounge After Dark</title>
+  <title>Smoke Stream: Lounge After Dark</title>
   <style>
     :root {
       --bg-color: #0e0e0e;
@@ -57,19 +57,22 @@
       margin-bottom: 20px;
       border-bottom: 1px solid var(--hover-glow);
       padding-bottom: 10px;
+      text-align: center;
     }
 
     .description {
       font-size: 1.1rem;
       color: var(--text-light);
       max-width: 800px;
-      margin-bottom: 30px;
+      margin: 0 auto 30px;
+      text-align: center;
     }
 
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
+      justify-content: center;
     }
 
     .gallery-item {
@@ -97,6 +100,70 @@
       font-size: 0.95rem;
     }
 
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card-container {
+      perspective: 1000px;
+      width: 280px;
+      height: 200px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card-container:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--card-bg);
+      color: var(--accent);
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .card-front {
+      font-size: 1.2rem;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background-color: #0e0e0e;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .card-back a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card-back a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       text-align: center;
       padding: 30px;
@@ -115,6 +182,11 @@
         flex: 1 1 100%;
       }
 
+      .card-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
       header h1 {
         font-size: 2.2rem;
       }
@@ -124,7 +196,7 @@
 <body>
 
   <header>
-    <h1>Smoke Stream: AI Lounge After Dark</h1>
+    <h1>Smoke Stream: Lounge After Dark</h1>
     <p>A genre-defying sonic ritual — DJ Turntablism · Spoken Word · Glitch Trap</p>
   </header>
 
@@ -144,10 +216,92 @@
           <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Visual 1">
           <p>“Vinyl Gods: 360°” — A Baroque glitch DJ ritual visualized through AI.</p>
         </div>
+
         <div class="gallery-item">
           <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="Visual 2">
           <p>“AI Lounge Broadcast” — A surreal After Dark transmission from the Smoke Stream collective.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Suno Playlists & Personas</h2>
+      <div class="card-grid">
+
+        <!-- Playlist Cards -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">🎧 SmokeStream Playlist</div>
+            <div class="card-back">
+              <a href="https://suno.com/playlist/8d2afb2e-234b-4f96-8e9a-bd6cad7ae99b" target="_blank">Open on Suno</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">🎶 Underground Playlist</div>
+            <div class="card-back">
+              <a href="https://suno.com/playlist/1b82e81f-ac89-4016-92b9-47d49af54f31" target="_blank">Open on Suno</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona Cards -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">👤 Persona #1</div>
+            <div class="card-back">
+              <a href="https://suno.com/persona/5336bf9a-531b-4da7-840a-710c900334ea" target="_blank">View Persona</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">👤 Persona #2</div>
+            <div class="card-back">
+              <a href="https://suno.com/persona/83fd4628-7be2-44a9-acfe-f7c869f1fba1" target="_blank">View Persona</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">👤 Persona #3</div>
+            <div class="card-back">
+              <a href="https://suno.com/persona/194861e4-9290-431e-98cc-4e7c077df766" target="_blank">View Persona</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">👤 Persona #4</div>
+            <div class="card-back">
+              <a href="https://suno.com/persona/8c8e6221-f2e8-48a8-90d2-8eada6f1384e" target="_blank">View Persona</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">👤 Persona #5</div>
+            <div class="card-back">
+              <a href="https://suno.com/persona/4e03d181-ef6c-436d-978c-22a6f4a15d3f" target="_blank">View Persona</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">👤 Persona #6</div>
+            <div class="card-back">
+              <a href="https://suno.com/persona/06f4d379-b857-4f23-b64f-7e69041e80ad" target="_blank">View Persona</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -158,5 +312,7 @@
   </footer>
 
 </body>
+</html>
+
 </html>
 
