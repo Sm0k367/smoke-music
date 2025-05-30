@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Lounge After Dark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/audio.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Smoke Stream</a>
+    <a href="ai-lounge.html">AI Lounge</a>
+    <a href="https://x.com/Sm0ken42O/live" target="_blank">Live Stream</a>
+  </nav>
+
+  <header>
+    <h1>AI Lounge After Dark</h1>
+    <p>Where web devs and AI minds meet after midnight.</p>
+  </header>
+
+  <section class="section">
+    <h2>Code Sharing</h2>
+    <p>Share your code and learn from others in our community.</p>
+  </section>
+
+  <section class="section">
+    <h2>Discussions</h2>
+    <p>Join deep dives into AI trends, tech culture, and creative coding.</p>
+  </section>
+
+  <section class="section">
+    <h2>Community Love</h2>
+    <p>Get recognized for your contributions and feel the support of the tribe.</p>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="https://x.com/Sm0ken42O/live" class="btn-glow">Join the Community</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 AI Lounge After Dark | Built by the Tribe
+  </footer>
+
+</body>
+</html>
