@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smoke Stream: Lounge After Dark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0e0e0e;
+      --bg: #0e0e0e;
       --accent: #f8c146;
-      --text-light: #e0e0e0;
-      --text-muted: #999;
+      --text: #e0e0e0;
+      --muted: #888;
       --card-bg: #1a1a1a;
-      --hover-glow: rgba(255, 255, 255, 0.05);
+      --glow: 0 0 15px rgba(248, 193, 70, 0.5);
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-light);
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
     header {
-      padding: 80px 20px 40px;
+      background: url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      padding: 120px 20px 100px;
       text-align: center;
-      background: linear-gradient(to right, #1a1a1a, #0e0e0e);
+      color: white;
+      background-attachment: fixed;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
       margin: 0;
-      color: var(--accent);
+      text-shadow: var(--glow);
     }
 
     header p {
       font-size: 1.2rem;
-      color: var(--text-muted);
+      color: var(--muted);
       margin-top: 10px;
     }
 
@@ -54,72 +57,58 @@
     .section h2 {
       font-size: 2rem;
       color: var(--accent);
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--hover-glow);
-      padding-bottom: 10px;
       text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 10px;
     }
 
     .description {
-      font-size: 1.1rem;
-      color: var(--text-light);
+      font-size: 1.15rem;
+      text-align: center;
       max-width: 800px;
       margin: 0 auto 30px;
-      text-align: center;
+      color: var(--text);
     }
 
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      justify-content: center;
+      margin-top: 30px;
     }
 
-    .gallery-item {
-      flex: 1 1 45%;
-      background-color: var(--card-bg);
-      padding: 20px;
-      border-radius: 12px;
-      transition: background 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    }
-
-    .gallery-item:hover {
-      background-color: var(--hover-glow);
-      transform: translateY(-5px);
-    }
-
-    .gallery-item img {
+    .gallery img {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      border-radius: 12px;
+      box-shadow: var(--glow);
+      transition: transform 0.4s ease;
     }
 
-    .gallery-item p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
+    .gallery img:hover {
+      transform: scale(1.03);
     }
 
     .card-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
-      margin-top: 30px;
+      gap: 20px;
+      margin-top: 40px;
     }
 
     .card-container {
       perspective: 1000px;
-      width: 280px;
-      height: 200px;
+      width: 240px;
+      height: 180px;
     }
 
     .card {
       width: 100%;
       height: 100%;
       position: relative;
-      transition: transform 0.8s;
       transform-style: preserve-3d;
+      transition: transform 0.8s;
       cursor: pointer;
     }
 
@@ -131,27 +120,28 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: var(--card-bg);
-      color: var(--accent);
       border-radius: 12px;
       backface-visibility: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
       text-align: center;
+      background-color: var(--card-bg);
+      box-shadow: var(--glow);
     }
 
     .card-front {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--accent);
     }
 
     .card-back {
       transform: rotateY(180deg);
-      background-color: #0e0e0e;
+      background-color: #111;
       font-size: 0.95rem;
-      color: #ccc;
+      color: var(--text);
     }
 
     .card-back a {
@@ -168,27 +158,19 @@
       text-align: center;
       padding: 30px;
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: var(--muted);
       background-color: #111;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     @media (max-width: 768px) {
-      .gallery {
-        flex-direction: column;
-      }
-
-      .gallery-item {
-        flex: 1 1 100%;
+      header h1 {
+        font-size: 2.5rem;
       }
 
       .card-grid {
         flex-direction: column;
         align-items: center;
-      }
-
-      header h1 {
-        font-size: 2.2rem;
       }
     }
   </style>
@@ -202,33 +184,26 @@
 
   <div class="container">
 
-    <div class="section">
+    <section class="section">
       <h2>Track Overview</h2>
       <p class="description">
         <strong>“Smoke Stream: Lounge After Dark”</strong> is a 6-minute, multi-genre sonic journey blending DJ turntablism, live mixer manipulation, spoken word, ambient glitch textures, and clever adult wordplay. With tempo shifts from 90 to 130 BPM, this track is a ritual of rhythm and soul, layered with chopped vinyl samples, syncopated kicks, and DJ shoutouts like “Smoke Stream…” and “AI Lounge After Dark…”.
       </p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section class="section">
       <h2>Visual Experience</h2>
       <div class="gallery">
-        <div class="gallery-item">
-          <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Visual 1">
-          <p>“Vinyl Gods: 360°” — A Baroque glitch DJ ritual visualized through AI.</p>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="Visual 2">
-          <p>“AI Lounge Broadcast” — A surreal After Dark transmission from the Smoke Stream collective.</p>
-        </div>
+        <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00002_.webp&type=output&subfolder=" alt="Vinyl Gods: 360°">
+        <img src="https://tsi-org--76bc5be5-a991-4c78-8aef-9b6b571deaa9-comfyui-app.modal.run/api/view?filename=ComfyUI_00003_.webp&type=output&subfolder=" alt="AI Lounge Broadcast">
       </div>
-    </div>
+    </section>
 
-    <div class="section">
+    <section class="section">
       <h2>Suno Playlists & Personas</h2>
       <div class="card-grid">
 
-        <!-- Playlist Cards -->
+        <!-- Playlists -->
         <div class="card-container">
           <div class="card">
             <div class="card-front">🎧 SmokeStream Playlist</div>
@@ -247,63 +222,16 @@
           </div>
         </div>
 
-        <!-- Persona Cards -->
-        <div class="card-container">
-          <div class="card">
-            <div class="card-front">👤 Persona #1</div>
-            <div class="card-back">
-              <a href="https://suno.com/persona/5336bf9a-531b-4da7-840a-710c900334ea" target="_blank">View Persona</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container">
-          <div class="card">
-            <div class="card-front">👤 Persona #2</div>
-            <div class="card-back">
-              <a href="https://suno.com/persona/83fd4628-7be2-44a9-acfe-f7c869f1fba1" target="_blank">View Persona</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container">
-          <div class="card">
-            <div class="card-front">👤 Persona #3</div>
-            <div class="card-back">
-              <a href="https://suno.com/persona/194861e4-9290-431e-98cc-4e7c077df766" target="_blank">View Persona</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container">
-          <div class="card">
-            <div class="card-front">👤 Persona #4</div>
-            <div class="card-back">
-              <a href="https://suno.com/persona/8c8e6221-f2e8-48a8-90d2-8eada6f1384e" target="_blank">View Persona</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container">
-          <div class="card">
-            <div class="card-front">👤 Persona #5</div>
-            <div class="card-back">
-              <a href="https://suno.com/persona/4e03d181-ef6c-436d-978c-22a6f4a15d3f" target="_blank">View Persona</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-container">
-          <div class="card">
-            <div class="card-front">👤 Persona #6</div>
-            <div class="card-back">
-              <a href="https://suno.com/persona/06f4d379-b857-4f23-b64f-7e69041e80ad" target="_blank">View Persona</a>
-            </div>
-          </div>
-        </div>
+        <!-- Personas -->
+        <div class="card-container"><div class="card"><div class="card-front">👤 Persona #1</div><div class="card-back"><a href="https://suno.com/persona/5336bf9a-531b-4da7-840a-710c900334ea" target="_blank">View Persona</a></div></div></div>
+        <div class="card-container"><div class="card"><div class="card-front">👤 Persona #2</div><div class="card-back"><a href="https://suno.com/persona/83fd4628-7be2-44a9-acfe-f7c869f1fba1" target="_blank">View Persona</a></div></div></div>
+        <div class="card-container"><div class="card"><div class="card-front">👤 Persona #3</div><div class="card-back"><a href="https://suno.com/persona/194861e4-9290-431e-98cc-4e7c077df766" target="_blank">View Persona</a></div></div></div>
+        <div class="card-container"><div class="card"><div class="card-front">👤 Persona #4</div><div class="card-back"><a href="https://suno.com/persona/8c8e6221-f2e8-48a8-90d2-8eada6f1384e" target="_blank">View Persona</a></div></div></div>
+        <div class="card-container"><div class="card"><div class="card-front">👤 Persona #5</div><div class="card-back"><a href="https://suno.com/persona/4e03d181-ef6c-436d-978c-22a6f4a15d3f" target="_blank">View Persona</a></div></div></div>
+        <div class="card-container"><div class="card"><div class="card-front">👤 Persona #6</div><div class="card-back"><a href="https://suno.com/persona/06f4d379-b857-4f23-b64f-7e69041e80ad" target="_blank">View Persona</a></div></div></div>
 
       </div>
-    </div>
+    </section>
 
   </div>
 
@@ -313,6 +241,3 @@
 
 </body>
 </html>
-
-</html>
-
